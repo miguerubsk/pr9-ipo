@@ -17,17 +17,16 @@ import java.util.ArrayList;
 public class ventana extends JFrame {
 
     public ventana(ArrayList<String> listaidiomas) {
-        super("Titulo de ventana");
+        super("Internacionalización");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container cp = getContentPane();
         cp.setLayout(new FlowLayout());
         JLabel etiqueta = new JLabel("Idioma: ");
-        JTextField texto = new JTextField(20);
         JButton boton = new JButton("Aplicar"); 
-        String[] idiomas = {listaidiomas.get(0), listaidiomas.get(1)};
         JComboBox idioma;
-        idioma = new JComboBox(idiomas);
+        idioma = new JComboBox();
+        idioma.setModel(new DefaultComboBoxModel(listaidiomas.toArray()));
         cp.add(etiqueta);
         cp.add(idioma);
         cp.add(boton);
