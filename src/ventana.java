@@ -2,6 +2,7 @@
 import java.awt.Container;
 import java.awt.FlowLayout;
 import javax.swing.*;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,17 +16,20 @@ import javax.swing.*;
  */
 public class ventana extends JFrame {
 
-    public ventana() {
+    public ventana(ArrayList<String> listaidiomas) {
         super("Titulo de ventana");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container cp = getContentPane();
         cp.setLayout(new FlowLayout());
-        JLabel etiqueta = new JLabel("Nombre: ");
+        JLabel etiqueta = new JLabel("Idioma: ");
         JTextField texto = new JTextField(20);
-        JButton boton = new JButton("Saludar"); 
+        JButton boton = new JButton("Aplicar"); 
+        String[] idiomas = {listaidiomas.get(0), listaidiomas.get(1)};
+        JComboBox idioma;
+        idioma = new JComboBox(idiomas);
         cp.add(etiqueta);
-        cp.add(texto);
+        cp.add(idioma);
         cp.add(boton);
     }
 } 
