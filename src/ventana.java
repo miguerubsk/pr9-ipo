@@ -39,9 +39,12 @@ public class ventana extends JFrame {
         leerfichero(listaidiomas, "idiomas.txt");
         
         
+        
         JComboBox idioma;
         idioma = new JComboBox();
         idioma.setModel(new DefaultComboBoxModel(listaidiomas.toArray()));
+        
+        idioma.addActionListener(idioma);
         
         idioma.getSelectedItem();
         String rutaTextos = idioma.getSelectedItem()+".txt";
