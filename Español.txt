@@ -1,3 +1,5 @@
 Aplicar
 Idioma:
 Salir
+Añadir
+Quitar todo

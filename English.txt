@@ -1,3 +1,5 @@
 Apply
 Language:
 Exit
+Add
+Remove all
