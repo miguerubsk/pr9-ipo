@@ -3,3 +3,7 @@ Idioma:
 Salir
 Añadir
 Quitar todo
+Aceptar
+Cancelar
+Atención
+Está a punto de salir de la aplicación
