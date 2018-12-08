@@ -1,4 +1,5 @@
 
+import java.awt.Dialog;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -47,9 +48,9 @@ public class formulario extends javax.swing.JFrame {
             Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Exit.setText(textos.get(0));
+        ExitButton.setText(textos.get(0));
         jLabel1.setText(textos.get(1));
-        Exit.setText(textos.get(2));
+        ExitButton.setText(textos.get(2));
         agregar.setText(textos.get(3));
         quitar.setText(textos.get(4));
         coso.removeAllItems();
@@ -74,7 +75,6 @@ public class formulario extends javax.swing.JFrame {
         jTree1 = new javax.swing.JTree();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollBar1 = new javax.swing.JScrollBar();
         jSpinner1 = new javax.swing.JSpinner();
         ExitAdvert = new javax.swing.JDialog();
@@ -82,7 +82,7 @@ public class formulario extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         ExitAdvertAccept = new javax.swing.JButton();
         languageSelector = new javax.swing.JComboBox<>();
-        Exit = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         agregar = new javax.swing.JButton();
         coso = new javax.swing.JComboBox<>();
@@ -157,10 +157,10 @@ public class formulario extends javax.swing.JFrame {
             }
         });
 
-        Exit.setText("jButton1");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
+        ExitButton.setText("jButton1");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
+                ExitButtonActionPerformed(evt);
             }
         });
 
@@ -203,7 +203,7 @@ public class formulario extends javax.swing.JFrame {
                 .addContainerGap(887, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Exit)
+                        .addComponent(ExitButton)
                         .addGap(35, 35, 35))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -246,7 +246,7 @@ public class formulario extends javax.swing.JFrame {
                 .addGap(198, 198, 198)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
-                .addComponent(Exit)
+                .addComponent(ExitButton)
                 .addGap(26, 26, 26))
         );
 
@@ -264,9 +264,9 @@ public class formulario extends javax.swing.JFrame {
             Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Exit.setText(textos.get(0));
+        ExitButton.setText(textos.get(0));
         jLabel1.setText(textos.get(1));
-        Exit.setText(textos.get(2));
+        ExitButton.setText(textos.get(2));
         agregar.setText(textos.get(3));
         quitar.setText(textos.get(4));
         
@@ -276,9 +276,9 @@ public class formulario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_languageSelectorActionPerformed
 
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         ExitAdvert.setVisible(true);
-        ExitAdvert.setModal(true);
+        ExitAdvert.setModalityType(Dialog.ModalityType.TOOLKIT_MODAL);
         ExitAdvert.setResizable(false);
         String rutaTextos = languageSelector.getSelectedItem()+".txt";
         
@@ -295,7 +295,7 @@ public class formulario extends javax.swing.JFrame {
         ExitAdvert.setSize(256, 206);
         ExitAdvert.setLocationRelativeTo(null);
         
-    }//GEN-LAST:event_ExitActionPerformed
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         coso.addItem(Texto.getText());
@@ -364,13 +364,12 @@ public class formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Exit;
     private javax.swing.JDialog ExitAdvert;
     private javax.swing.JButton ExitAdvertAccept;
     private javax.swing.JLabel ExitAdvertCancel;
+    private javax.swing.JButton ExitButton;
     private javax.swing.JTextField Texto;
     private javax.swing.JButton agregar;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> coso;
     private javax.swing.JButton jButton1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
