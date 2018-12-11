@@ -1,4 +1,4 @@
-
+import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JList;
+import javax.swing.ListModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,20 +41,24 @@ public class formulario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         languageSelector.setModel(new DefaultComboBoxModel(listaidiomas.toArray()));
         String rutaTextos = languageSelector.getSelectedItem()+".txt";
+        String rutaLista = "lista"+languageSelector.getSelectedItem()+".txt";
         
         ArrayList<String> textos = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
         try {
             leerfichero(textos, rutaTextos);
+            leerfichero(list, rutaLista);
         } catch (IOException ex) {
             Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         Exit.setText(textos.get(0));
-        jLabel1.setText(textos.get(1));
+        Language.setText(textos.get(1));
         Exit.setText(textos.get(2));
         agregar.setText(textos.get(3));
         quitar.setText(textos.get(4));
         coso.removeAllItems();
+        this.lista = new JList((ListModel) list);
         
     }
 
@@ -65,51 +71,29 @@ public class formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jSlider1 = new javax.swing.JSlider();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        jScrollBar1 = new javax.swing.JScrollBar();
-        jSpinner1 = new javax.swing.JSpinner();
         ExitAdvert = new javax.swing.JDialog();
-        ExitAdvertCancel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ExitAdvertText = new javax.swing.JLabel();
+        ExitAdvertCancel = new javax.swing.JButton();
         ExitAdvertAccept = new javax.swing.JButton();
         languageSelector = new javax.swing.JComboBox<>();
         Exit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Language = new javax.swing.JLabel();
         agregar = new javax.swing.JButton();
         coso = new javax.swing.JComboBox<>();
         quitar = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
         Texto = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lista = new javax.swing.JList<>();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jList1);
+        ExitAdvert.setModal(true);
+        ExitAdvert.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
 
-        jFormattedTextField1.setText("jFormattedTextField1");
+        ExitAdvertText.setText("jLabel2");
 
-        jScrollPane3.setViewportView(jTree1);
-
-        jScrollPane4.setViewportView(jTextPane1);
-
-        ExitAdvertCancel.setText("jLabel2");
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ExitAdvertCancel.setText("jButton1");
+        ExitAdvertCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ExitAdvertCancelActionPerformed(evt);
             }
         });
 
@@ -128,10 +112,10 @@ public class formulario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ExitAdvertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ExitAdvertLayout.createSequentialGroup()
-                        .addComponent(ExitAdvertCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ExitAdvertText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ExitAdvertLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(ExitAdvertCancel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ExitAdvertAccept)
                         .addGap(109, 109, 109))))
@@ -140,11 +124,11 @@ public class formulario extends javax.swing.JFrame {
             ExitAdvertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ExitAdvertLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ExitAdvertCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ExitAdvertText, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(ExitAdvertLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ExitAdvertAccept)
-                    .addComponent(jButton1))
+                    .addComponent(ExitAdvertCancel))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -164,7 +148,7 @@ public class formulario extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("jLabel1");
+        Language.setText("jLabel1");
 
         agregar.setText("jButton1");
         agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -182,18 +166,18 @@ public class formulario extends javax.swing.JFrame {
             }
         });
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane5.setViewportView(jList2);
-
         Texto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TextoActionPerformed(evt);
             }
         });
+
+        lista.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lista);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,25 +190,24 @@ public class formulario extends javax.swing.JFrame {
                         .addComponent(Exit)
                         .addGap(35, 35, 35))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(Language)
                         .addGap(18, 18, 18)
                         .addComponent(languageSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Texto)
-                        .addGap(18, 18, 18)
-                        .addComponent(agregar)))
+                .addContainerGap()
+                .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(agregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(quitar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 634, Short.MAX_VALUE)
                 .addComponent(coso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +215,7 @@ public class formulario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(languageSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(Language))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
@@ -243,9 +226,9 @@ public class formulario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(coso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(198, 198, 198)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
+                .addGap(127, 127, 127)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Exit)
                 .addGap(26, 26, 26))
         );
@@ -256,16 +239,19 @@ public class formulario extends javax.swing.JFrame {
     private void languageSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languageSelectorActionPerformed
         
         String rutaTextos = languageSelector.getSelectedItem()+".txt";
+        String rutaLista = "lista"+languageSelector.getSelectedItem()+".txt";
         
         ArrayList<String> textos = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
         try {
             leerfichero(textos, rutaTextos);
+            leerfichero(list, rutaLista);
         } catch (IOException ex) {
             Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        this.lista = new JList((ListModel) list);
         Exit.setText(textos.get(0));
-        jLabel1.setText(textos.get(1));
+        Language.setText(textos.get(1));
         Exit.setText(textos.get(2));
         agregar.setText(textos.get(3));
         quitar.setText(textos.get(4));
@@ -289,16 +275,16 @@ public class formulario extends javax.swing.JFrame {
             Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
         }
         ExitAdvert.setTitle(textos.get(7));
-        jButton1.setText(textos.get(6));
+        ExitAdvertCancel.setText(textos.get(6));
         ExitAdvertAccept.setText(textos.get(5));
-        ExitAdvertCancel.setText(textos.get(8));
+        ExitAdvertText.setText(textos.get(8));
         ExitAdvert.setSize(256, 206);
         ExitAdvert.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_ExitActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        coso.addItem(Texto.getText());
+        String elemento = Texto.getText();
         Texto.setText(null);
     }//GEN-LAST:event_agregarActionPerformed
 
@@ -307,13 +293,12 @@ public class formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_quitarActionPerformed
 
     private void ExitAdvertAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitAdvertAcceptActionPerformed
-        this.dispose();
-        ExitAdvert.dispose();
+        System.exit(0);
     }//GEN-LAST:event_ExitAdvertAcceptActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ExitAdvertCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitAdvertCancelActionPerformed
         ExitAdvert.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ExitAdvertCancelActionPerformed
 
     private void TextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoActionPerformed
         // TODO add your handling code here:
@@ -352,13 +337,11 @@ public class formulario extends javax.swing.JFrame {
         leerfichero(listaidiomas, "idiomas.txt");
         
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new formulario(listaidiomas).setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new formulario(listaidiomas).setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
@@ -367,27 +350,15 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JDialog ExitAdvert;
     private javax.swing.JButton ExitAdvertAccept;
-    private javax.swing.JLabel ExitAdvertCancel;
+    private javax.swing.JButton ExitAdvertCancel;
+    private javax.swing.JLabel ExitAdvertText;
+    private javax.swing.JLabel Language;
     private javax.swing.JTextField Texto;
     private javax.swing.JButton agregar;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> coso;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> languageSelector;
+    private javax.swing.JList<String> lista;
     private javax.swing.JButton quitar;
     // End of variables declaration//GEN-END:variables
 }
