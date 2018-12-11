@@ -1,4 +1,3 @@
-import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -58,7 +57,7 @@ public class formulario extends javax.swing.JFrame {
         agregar.setText(textos.get(3));
         quitar.setText(textos.get(4));
         coso.removeAllItems();
-        this.lista = new JList((ListModel) list);
+        coso.setModel(new DefaultComboBoxModel(list.toArray()));
         
     }
 
@@ -82,8 +81,6 @@ public class formulario extends javax.swing.JFrame {
         coso = new javax.swing.JComboBox<>();
         quitar = new javax.swing.JButton();
         Texto = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lista = new javax.swing.JList<>();
 
         ExitAdvert.setModal(true);
         ExitAdvert.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
@@ -172,13 +169,6 @@ public class formulario extends javax.swing.JFrame {
             }
         });
 
-        lista.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(lista);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,10 +194,6 @@ public class formulario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 634, Short.MAX_VALUE)
                 .addComponent(coso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,9 +212,7 @@ public class formulario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(coso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(127, 127, 127)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 600, Short.MAX_VALUE)
                 .addComponent(Exit)
                 .addGap(26, 26, 26))
         );
@@ -249,7 +233,7 @@ public class formulario extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(formulario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.lista = new JList((ListModel) list);
+        coso.setModel(new DefaultComboBoxModel(list.toArray()));
         Exit.setText(textos.get(0));
         Language.setText(textos.get(1));
         Exit.setText(textos.get(2));
@@ -356,9 +340,7 @@ public class formulario extends javax.swing.JFrame {
     private javax.swing.JTextField Texto;
     private javax.swing.JButton agregar;
     private javax.swing.JComboBox<String> coso;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> languageSelector;
-    private javax.swing.JList<String> lista;
     private javax.swing.JButton quitar;
     // End of variables declaration//GEN-END:variables
 }
