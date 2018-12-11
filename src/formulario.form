@@ -63,6 +63,11 @@
     <Component class="javax.swing.JSpinner" name="jSpinner1">
     </Component>
     <Container class="javax.swing.JDialog" name="ExitAdvert">
+      <Properties>
+        <Property name="modalExclusionType" type="java.awt.Dialog$ModalExclusionType" editor="org.netbeans.modules.form.editors.EnumEditor">
+          <Value id="TOOLKIT_EXCLUDE"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

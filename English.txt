@@ -7,3 +7,4 @@ Accept
 Cancel
 Warning
 You are about to exit the application
+Close Window?

@@ -7,3 +7,4 @@ Aceptar
 Cancelar
 Atención
 Está a punto de salir de la aplicación
+¿Cerrar ventana?

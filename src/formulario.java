@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,6 +23,18 @@ import javax.swing.DefaultComboBoxModel;
 public class formulario extends javax.swing.JFrame {
     
     
+    public void windowClosing(java.awt.event.WindowEvent windowEvent) throws IOException{
+        
+        String rutaTextos = languageSelector.getSelectedItem()+".txt";
+        ArrayList<String> textos = new ArrayList<>();
+        leerfichero(textos, rutaTextos);
+        
+        if (JOptionPane.showConfirmDialog(this.rootPane, textos.get(8), textos.get(9), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }
+    
+    
     public static void leerfichero(ArrayList lista, String fichero) throws FileNotFoundException, IOException{
         FileReader f = new FileReader(fichero);
         BufferedReader b = new BufferedReader(f);
@@ -34,6 +47,8 @@ public class formulario extends javax.swing.JFrame {
 
     /**
      * Creates new form formulario
+     * @param listaidiomas
+     * @throws java.io.IOException
      */
     public formulario(ArrayList<String> listaidiomas) throws IOException {
         initComponents();
@@ -103,6 +118,8 @@ public class formulario extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTree1);
 
         jScrollPane4.setViewportView(jTextPane1);
+
+        ExitAdvert.setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
 
         ExitAdvertCancel.setText("jLabel2");
 
